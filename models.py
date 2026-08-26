@@ -48,7 +48,7 @@ class Transaction(Base):
     id : Mapped[int] = mapped_column(primary_key=True, index=True)
     user_id : Mapped[int] = mapped_column(ForeignKey("users.id"))
     category_id : Mapped[int] = mapped_column(ForeignKey("categories.id"))
-    type : Mapped[TransactionType] = mapped_column() #TODO: o que coloca?
+    type : Mapped[TransactionType] = mapped_column() 
     amount : Mapped[Decimal] = mapped_column(Numeric(10,2)) 
     transaction_date : Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     location : Mapped[str] = mapped_column(String(300))
