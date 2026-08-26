@@ -69,8 +69,10 @@ def getCategories(skip: int = 0, limit: int = 20, db : Session = Depends(get_db)
     return categories
 
 @app.post("/transactions", response_model=schemas.TransactionResponse)
-def registerTransaction(transaction_create : schemas.TransactionCreate,
-                        db : Session = Depends(get_db)):
+def registerTransaction(
+    transaction_create : schemas.TransactionCreate,
+    db : Session = Depends(get_db)
+    ):
     db_transaction = models.Transaction(
         user_id = 1, #TODO: TIRAR QUANDO TIVER AUTH
         category_id=transaction_create.category_id,
